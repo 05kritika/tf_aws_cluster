@@ -1,8 +1,8 @@
 title 'Test single AWS EC2 Instance'
 
-aws_instance_id = attribute(:aws_instance_id, default: 'i-062a809e54c3ed644', description: 'The AWS EC2 Instance ID.')
+aws_instance_id = attribute(:aws_instance_id, default: 'i-02db9f0886627eb19', description: 'The AWS EC2 Instance ID.')
 aws_vm_name = attribute(:aws_vm_name, default: '', description: 'The AWS EC2 Instance name.')
-aws_vm_size = attribute(:aws_vm_size, default: 't2.medium', description: 'The AWS EC2 Instance type.')
+aws_vm_size = attribute(:aws_vm_size, default: 't2.micro', description: 'The AWS EC2 Instance type.')
 aws_ec2_ami_id = attribute(:aws_ec2_ami_id, default: 'ami-0a313d6098716f372', description: 'The AWS EC2 image id.')
 
 control 'aws-ec2-instance-1.0' do
