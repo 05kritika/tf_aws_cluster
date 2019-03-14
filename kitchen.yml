@@ -1,0 +1,38 @@
+---
+driver:
+  name: terraform
+  variable_files:
+    - testing.tfvars
+
+provisioner:
+  name: terraform
+
+platforms:
+  - name: ubuntu
+    driver:
+      variables:
+        instances_ami: ami-0a313d6098716f372
+
+        subnet_availability_zone: us-east-1b
+
+transport:
+  name: ssh
+  ssh_key: /home/ubuntu/kritika.pem
+
+verifier:
+  name: terraform
+  format: doc
+  systems:
+    - name: aws_instance
+      backend: ssh
+      key_files:
+        - /home/ubuntu/kritika.pem
+      hosts_output: public_dns
+      username: ubuntu
+      host: public_dns
+      controls:
+        - operating_system
+        - aws_ec2_instance
+  
+suites:
+  - name: default
